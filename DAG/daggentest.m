@@ -1,0 +1,6 @@
+function [er, bad] = daggentest(nn, x, y)
+    labels = daggenpredict(nn, x);
+    [~, expected] = max(y,[],2);
+    bad = find(labels ~= expected);    
+    er = numel(bad) / size(x, 1);
+end
